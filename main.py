@@ -12,7 +12,7 @@ def xml_to_yolo_bbox(bbox, w, h):
     return [x_center, y_center, width, height]
 
 classes = []
-input_dir = "D:/Projects/PyCharmProjects/Dogs_innopolis/annotations_loaded"
+input_dir = "D:/Data/Dogs_Innopolis_learned/annotations_loaded"
 
 
 files = glob.glob(os.path.join(input_dir, '*'))
@@ -40,21 +40,21 @@ for fil in files:
         from random import randint
         number = randint(1, 100)
         if number <= 2:
-            with open(os.path.join("D:/Projects/PyCharmProjects/Dogs_innopolis/labels/val/", f"{filename}.txt"), "w", encoding="utf-8") as f:
+            with open(os.path.join("D:/Data/Dogs_Innopolis_learned/labels/val/", f"{filename}.txt"), "w", encoding="utf-8") as f:
                 f.write("\n".join(result))
-            os.replace(f"D:/Projects/PyCharmProjects/Dogs_innopolis/images_loaded/{filename}.jpg",
-                       f"D:/Projects/PyCharmProjects/Dogs_innopolis/images/val/{filename}.jpg")
+            os.replace(f"D:/Data/Dogs_Innopolis_learned/images_loaded/{filename}.jpg",
+                       f"D:/Data/Dogs_Innopolis_learned/images/val/{filename}.jpg")
         elif number <= 22:
-            with open(os.path.join("D:/Projects/PyCharmProjects/Dogs_innopolis/labels/test/",f"{filename}.txt"), "w", encoding="utf-8") as f:
+            with open(os.path.join("D:/Data/Dogs_Innopolis_learned/labels/test/",f"{filename}.txt"), "w", encoding="utf-8") as f:
                 f.write("\n".join(result))
-            os.replace(f"D:/Projects/PyCharmProjects/Dogs_innopolis/images_loaded/{filename}.jpg",
-                       f"D:/Projects/PyCharmProjects/Dogs_innopolis/images/test/{filename}.jpg")
+            os.replace(f"D:/Data/Dogs_Innopolis_learned/images_loaded/{filename}.jpg",
+                       f"D:/Data/Dogs_Innopolis_learned/images/test/{filename}.jpg")
         else:
-            with open(os.path.join("D:/Projects/PyCharmProjects/Dogs_innopolis/labels/train/", f"{filename}.txt"), "w",
+            with open(os.path.join("D:/Data/Dogs_Innopolis_learned/labels/train/", f"{filename}.txt"), "w",
                       encoding="utf-8") as f:
                 f.write("\n".join(result))
-            os.replace(f"D:/Projects/PyCharmProjects/Dogs_innopolis/images_loaded/{filename}.jpg",
-                       f"D:/Projects/PyCharmProjects/Dogs_innopolis/images/train/{filename}.jpg")
+            os.replace(f"D:/Data/Dogs_Innopolis_learned/images_loaded/{filename}.jpg",
+                       f"D:/Data/Dogs_Innopolis_learned/images/train/{filename}.jpg")
 
 with open('classes.txt', 'w', encoding='utf8') as f:
     f.write(json.dumps(classes))
